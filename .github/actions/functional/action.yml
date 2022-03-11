@@ -1,5 +1,10 @@
 name: Functional
 description: Performs functional tests checks
+inputs:
+  project:
+    description: "Playwright project to use"
+    required: true
+    default: "chromium"
 runs:
   using: composite
   steps:
@@ -14,7 +19,7 @@ runs:
       shell: sh
     - run: npm run build
       shell: sh
-    - run: npm run test:functional
+    - run: npm run test:functional -- --project ${{ inputs.project }}
       shell: sh
     - uses: actions/upload-artifact@v2
       if: always()

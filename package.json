@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "dev": "npm -w packages/react-dom run build && concurrently 'npm -w packages/core run dev' 'npm -w packages/dom run dev' 'parcel packages/dom/test/visual/index.html'",
-    "test:functional": "npx playwright test packages/dom/test/functional",
+    "test:functional": "npx playwright test packages/dom/test/functional/arrow.test.ts",
     "test:functional:update": "npm run test:functional -- -u",
     "build": "npm -w packages/core run build && npm -w packages/dom run build && npm -w packages/react-dom run build && npm -w packages/react-native run build",
     "build:typescript": "tsc --project .config/tsconfig.json",
@@ -45,5 +45,8 @@
     "prettier": "^2.5.0",
     "shiki": "^0.9.14",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@recordreplay/playwright-config": "^0.2.1"
   }
 }
