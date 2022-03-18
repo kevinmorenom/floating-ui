@@ -16,5 +16,5 @@ jobs:
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/functional
         with:
-          project: ${{ inputs.project || "replay-firefox" }}
+          project: ${{ inputs.project || 'replay-firefox' }}
           apiKey: ${{ secrets.RECORD_REPLAY_API_KEY }}
