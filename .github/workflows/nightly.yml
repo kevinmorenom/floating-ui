@@ -1,13 +1,11 @@
 name: Nightly
 on:
   workflow_dispatch:
+    inputs:
+      project:
+        description: "Playwright project to use"
   schedule:
     - cron:  '30 5 * * *'
-
-inputs:
-  project:
-    description: "Playwright project to use"
-    default: "replay-firefox"
 
 jobs:
   functional-tests:
@@ -18,5 +16,5 @@ jobs:
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/functional
         with:
-          project: ${{ inputs.project }}
+          project: ${{ inputs.project || "replay-firefox" }}
           apiKey: ${{ secrets.RECORD_REPLAY_API_KEY }}
