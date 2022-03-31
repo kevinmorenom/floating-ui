@@ -113,6 +113,9 @@ of testing the code.
 Below the main container are UI controls to turn on certain state and options.
 Every single combination of state is tested visually via the snapshots to cover
 as much as possible.
+  
+### Replay
+This fork uses a Replay-enabled browser to record Playwright tests to generate recordings of failed tests.
 
 ### Website
 
