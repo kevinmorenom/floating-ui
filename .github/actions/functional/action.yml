@@ -9,6 +9,8 @@ inputs:
     description: "Replay.io API Key"
   issue-number:
     description: "Issue / Pull Request on which to comment results"
+  upload-all:
+    description: "Upload all replays"
 runs:
   using: composite
   steps:
@@ -23,12 +25,13 @@ runs:
       shell: sh
     - run: npm run build
       shell: sh
-    - uses: replayio/action-playwright@v0.1.0
+    - uses: replayio/action-playwright@v0.3.0
       with:
         command: npm run test:functional --
         issue-number: ${{ inputs.issue-number }}
         project: ${{ inputs.project }}
         apiKey: ${{ inputs.apiKey }}
+        upload-all: true
     - uses: actions/upload-artifact@v2
       if: always()
       with:
